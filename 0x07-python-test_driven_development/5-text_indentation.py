@@ -1,17 +1,28 @@
 #!/usr/bin/python3
-"""Defines a name-printing function."""
+"""Defines a text-indentation function."""
 
 
-def say_my_name(first_name, last_name=""):
-    """Print a name.
+def text_indentation(text):
+    """Print text with two new lines after each '.', '?', and ':'.
     Args:
-        first_name (str): The first name to print.
-        last_name (str): The last name to print.
+        text (string): The text to print.
     Raises:
-        TypeError: If either of first_name or last_name are not strings.
+        TypeError: If text is not a string.
     """
-    if not isinstance(first_name, str):
-        raise TypeError("first_name must be a string")
-    if not isinstance(last_name, str):
-        raise TypeError("last_name must be a string")
-    print("My name is {} {}".format(first_name, last_name))
+    if not isinstance(text, str):
+        raise TypeError("text must be a string")
+
+    c = 0
+    while c < len(text) and text[c] == ' ':
+        c += 1
+
+    while c < len(text):
+        print(text[c], end="")
+        if text[c] == "\n" or text[c] in ".?:":
+            if text[c] in ".?:":
+                print("\n")
+            c += 1
+            while c < len(text) and text[c] == ' ':
+                c += 1
+            continue
+        c += 1
