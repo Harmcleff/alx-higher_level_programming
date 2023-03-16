@@ -5,4 +5,5 @@
 -- Records should be listed by descending score
 -- The database name will be passed as an argument to the mysql command
 -- In this example, new data have been added to the table second_table.
-SELECT score,name FROM second_table WHERE name IS NOT NULL AND name != '' ORDER BY score DESC;
+
+SELECT score, name FROM second_table WHERE name IS NOT NULL AND name != '' ORDER BY score DESC;
